@@ -1,0 +1,48 @@
+# Copyright (c) 2024 Zhang Xingtao
+# SPDX-License-Identifier: Apache-2.0
+
+description: AW9523B GPIO Controller
+
+  AW9523B features 16 native GPIOs.
+
+  Pin-info
+  Drop out performance of P1_0~P1_3,P0_0~P0_1 has been enhanced, better choices for drive LCD backlight.
+
+    1  P1_0
+    2  P1_1
+    3  P1_2
+    4  P1_3
+    5  P0_0
+    6  P0_1
+    7  P0_2
+    8  P0_3
+    9  GND
+    10 P0_4
+    11 P0_5
+    12 P0_6
+    13 P0_7
+    14 P1_4
+    15 P1_5
+    16 P1_6
+    17 P1_7
+    18 AD0
+    19 SCL
+    20 SDA
+    21 VCC
+    22 INTN
+    23 RSTN
+    24 AD1
+    25 GND
+
+
+compatible: "awinic,aw9523b-gpio"
+
+include: gpio-controller.yaml
+
+properties:
+  "#gpio-cells":
+    const: 2
+
+gpio-cells:
+  - pin
+  - flags

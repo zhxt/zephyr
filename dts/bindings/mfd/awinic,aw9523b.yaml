@@ -1,0 +1,12 @@
+# Copyright (c) 2024 Zhang Xingtao
+# SPDX-License-Identifier: Apache-2.0
+
+description: Awinic aw9523b
+
+compatible: "awinic,aw9523b"
+
+include: i2c-device.yaml
+
+properties:
+  reg:
+    required: true

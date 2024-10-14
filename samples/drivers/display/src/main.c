@@ -279,6 +279,8 @@ int main(void)
 #endif
 	}
 
+	LOG_INF("Display bg color %02x", capabilities.current_pixel_format);
+
 	buf = k_malloc(buf_size);
 
 	if (buf == NULL) {

@@ -5,9 +5,8 @@
  */
 
 #include <zephyr/dt-bindings/pinctrl/esp-pinctrl-common.h>
-#include <dt-bindings/pinctrl/esp32s3-pinctrl.h>
+#include <zephyr/dt-bindings/pinctrl/esp32s3-pinctrl.h>
 #include <zephyr/dt-bindings/pinctrl/esp32s3-gpio-sigmap.h>
-
 
 &pinctrl {
 	uart0_default: uart0_default {
@@ -23,12 +22,23 @@
 
 	spim2_default: spim2_default {
 		group1 {
-			pinmux = <SPIM2_MISO_GPIO8>,
-				 <SPIM2_SCLK_GPIO7>;
+			pinmux = <SPIM2_MISO_GPIO35>,
+				 <SPIM2_SCLK_GPIO36>;
 		};
 		group2 {
-			pinmux = <SPIM2_MOSI_GPIO9>;
+			pinmux = <SPIM2_MOSI_GPIO37>;
 			output-low;
+		};
+	};
+
+	spim3_default: spim3_default {
+		group1 {
+			pinmux = <SPIM3_MISO_GPIO35>,
+				<SPIM3_SCLK_GPIO36>;
+		};
+		group2 {
+			pinmux = <SPIM3_MOSI_GPIO37>;
+				output-low;
 		};
 	};
 

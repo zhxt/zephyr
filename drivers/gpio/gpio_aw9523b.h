@@ -14,20 +14,21 @@ ports can be configured as LED drive mode or GPIO mode.
 After power on, all the 16 I/O ports are configured as GPIO output as default.
 */
 
+#define AW9523B_CHIP_ID               0x23
 
 // Register address
 
-#define AW9523B_INPUT_PORT_0     0x00
-#define AW9523B_INPUT_PORT_1     0x01
-#define AW9523B_OUTPUT_PORT_0    0x02
-#define AW9523B_OUTPUT_PORT_1    0x03
-#define AW9523B_CONFIG_PORT_0    0x04
-#define AW9523B_CONFIG_PORT_1    0x05
-#define AW9523B_INT_PORT_0       0x06
-#define AW9523B_INT_PORT_1       0x07
+#define AW9523B_REG_INPUT_PORT_0     0x00
+#define AW9523B_REG_INPUT_PORT_1     0x01
+#define AW9523B_REG_OUTPUT_PORT_0    0x02
+#define AW9523B_REG_OUTPUT_PORT_1    0x03
+#define AW9523B_REG_CONFIG_PORT_0    0x04
+#define AW9523B_REG_CONFIG_PORT_1    0x05
+#define AW9523B_REG_INT_PORT_0       0x06
+#define AW9523B_REG_INT_PORT_1       0x07
 
-#define AW9523B_ID               0x10
-#define AW9523B_CTL              0x11
+#define AW9523B_REG_ID               0x10
+#define AW9523B_REG_CTL              0x11
 
 /*
   Configure P0_0~P0_7 as LED or GPIO mode

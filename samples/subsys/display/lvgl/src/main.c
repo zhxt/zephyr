@@ -20,7 +20,7 @@ LOG_MODULE_REGISTER(app);
 
 static uint32_t count;
 
-#ifdef CONFIG_GPIO
+#ifdef CONFIG_GPIO_N
 static struct gpio_dt_spec button_gpio = GPIO_DT_SPEC_GET_OR(
 		DT_ALIAS(sw0), gpios, {0});
 static struct gpio_callback button_callback;
@@ -67,7 +67,7 @@ int main(void)
 		return 0;
 	}
 
-#ifdef CONFIG_GPIO
+#ifdef CONFIG_GPIO_N
 	if (gpio_is_ready_dt(&button_gpio)) {
 		int err;
 

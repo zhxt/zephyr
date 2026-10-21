@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+tests:
+  kernel.scheduler.preempt_irq:
+    tags:
+      - kernel
+      - timer
+    filter: CONFIG_SYS_CLOCK_EXISTS
+    integration_platforms:
+      - qemu_cortex_m3
+    timeout: 30

@@ -1,0 +1,25 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  BES2700 BTH UART with PL011-style registers and BES RXEXT/OVSAMP.
+  The loader must enable the clock and configure the pins before init.
+  Supports fixed 8N1 with no flow control.
+
+compatible: "bestechnic,bes2700-bth-uart"
+
+include: uart-controller.yaml
+
+properties:
+  reg:
+    required: true
+  clock-frequency:
+    required: true
+  current-speed:
+    required: true
+  parity:
+    const: "none"
+  stop-bits:
+    const: "1"
+  data-bits:
+    const: 8

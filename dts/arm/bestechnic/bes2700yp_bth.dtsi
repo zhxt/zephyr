@@ -16,6 +16,15 @@
 			reg = <0>;
 		};
 	};
+
+	soc {
+		bth_uart0: serial@4000b000 {
+			compatible = "bestechnic,bes2700-bth-uart";
+			reg = <0x4000b000 0x1000>;
+			interrupts = <17 2>;
+			status = "disabled";
+		};
+	};
 };
 
 &nvic {

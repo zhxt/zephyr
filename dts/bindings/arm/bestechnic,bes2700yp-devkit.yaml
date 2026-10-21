@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+description: BES2700YP Development Kit
+
+compatible: "bestechnic,bes2700yp-devkit"
+
+include: base.yaml
+
+properties:
+  model:
+    type: string
+    description: Board model

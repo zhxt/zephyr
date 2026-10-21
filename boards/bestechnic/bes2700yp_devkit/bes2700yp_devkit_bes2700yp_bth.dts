@@ -1,0 +1,56 @@
+/*
+ * SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+#include <bestechnic/bes2700yp_bth.dtsi>
+#include <mem.h>
+
+/ {
+	model = "BES2700YP Development Kit BTH";
+	compatible = "bestechnic,bes2700yp-devkit";
+
+	/* This allocation belongs to the board's boot image contract. */
+	bth_code: memory@510000 {
+		compatible = "zephyr,memory-region";
+		reg = <0x00510000 DT_SIZE_K(192)>;
+		zephyr,memory-region = "BTHCODE";
+	};
+
+	bth_data: memory@20540000 {
+		compatible = "zephyr,memory-region";
+		reg = <0x20540000 DT_SIZE_K(112)>;
+		zephyr,memory-region = "BTHDATA";
+	};
+
+	reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		bootstrap: memory@20500000 {
+			reg = <0x20500000 DT_SIZE_K(64)>;
+		};
+
+		handoff: memory@2055c000 {
+			reg = <0x2055c000 DT_SIZE_K(16)>;
+		};
+	};
+
+	chosen {
+		zephyr,flash = &bth_code;
+		zephyr,sram = &bth_data;
+		zephyr,console = &bth_uart0;
+	};
+};
+
+&cpu0 {
+	clock-frequency = <24000000>;
+};
+
+&bth_uart0 {
+	clock-frequency = <24000000>;
+	current-speed = <1152000>;
+	status = "okay";
+};

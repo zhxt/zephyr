@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+identifier: bes2700yp_devkit/bes2700yp/bth
+name: BES2700YP Development Kit BTH
+type: mcu
+arch: arm
+ram: 112
+flash: 192
+toolchain:
+  - zephyr
+  - cross-compile
+supported:
+  - uart

@@ -1,0 +1,112 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+set(BES_BOOT_REQUIRED_SYMBOLS
+  rc_clock_init
+  rc_vcm_pmu_only
+  xtal_clock_init
+  xtal_usb_bg_enable
+  usbphy_ldo_config
+  boot_power_leaf_fail
+  pmu_get_efuse_phy
+  pmu_efuse_init
+  pmu_get_efuse
+  pmu_itn_init
+  pmu_itn_close_usb_itf
+  pmu_itn_open_usb_itf
+  pmu_dig_get_target_volt
+  pmu_dig_init_volt
+  read_hw_metal_id
+  pmu_get_chip_type
+  pmu_dcdc_ana_set_volt
+  pmu_dcdc_dig_set_volt
+  pmu_dcdc_hppa_set_volt
+  pmu_get_ldo_dig_calib_value
+  pmu_codec_mic_bias_set_volt
+  pmu_module_config
+  pmu_module_set_volt
+  pmu_module_get_volt
+  pmu_module_ramp_volt
+  pmu_dig_set_volt
+  pmu_mode_change
+  pmu_sys_freq_config
+  pmu_wdt_stop
+  pmu_rf_ana_init
+  pmu_usb_config
+  pmu_boot_init
+  pmu_open
+  hal_spi_init_ctrl
+  boot_spi_config_fail
+  boot_spi_set_transfer_type
+  boot_spi_enable
+  boot_spi_open
+  hal_ispi_open
+  hal_ispi_enable_ctrl
+  hal_ispi_activate_cs
+  boot_spi_read32
+  boot_spi_write32
+  boot_spi_control_fail
+  boot_spi_poll_send
+  boot_spi_poll_recv
+  hal_ispi_send
+  hal_ispi_recv
+  hal_analogif_reg_read
+  hal_analogif_reg_write
+  hal_analogif_open
+  norflaship_continuous_read_off
+  norflaship_write_txfifo
+  norflaship_read_rxfifo
+  norflaship_cmd_addr
+  norflaship_ext_tx_cmd
+  norflaship_ext_rx_cmd
+  norflaship_cmd_done
+  norflaship_rxfifo_count_wait
+  norflaship_busy_wait
+  norflaship_is_busy
+  norflaship_clear_fifos
+  norflaship_clear_rxfifo
+  norflaship_div
+  norflaship_get_div
+  norflaship_samdly
+  norflaship_dual_mode
+  norflaship_quad_mode
+  norflaship_4byteaddr_mode
+  norflaship_nand_sel
+  norflaship_rdcmd
+  norflaship_qrdcmd
+  norflaship_set_idle_io_dir
+  norflaship_dtr_mode
+  norflaship_mem_read_bus_lock
+  norflaship_mem_read_bus_unlock
+  boot_flaship_write8
+  boot_nor_set_read_div
+  norflash_read_status_s0_s7
+  norflash_read_status_s8_s15
+  norflash_reset
+  norflash_pre_operation_suspend
+  norflash_post_operation_suspend
+  norflash_get_id
+  norflash_init_sample_delay_by_div
+  hal_norflash_set_boot_freq
+)
+
+target_link_options(adapter PRIVATE
+  -mthumb
+  -mcpu=cortex-m33
+  -mfpu=fpv5-sp-d16
+  -mfloat-abi=hard
+  -static
+  -nostdlib
+  "-T${CMAKE_CURRENT_SOURCE_DIR}/linker/loader.ld"
+  -Wl,-X,--no-wchar-size-warning,--print-memory-usage,--gc-sections,-Map=adapter.map
+  "-Wl,--build-id=0x${BES_BOOT_BUILD_ID}"
+  -Wl,--wrap=hal_sys_timer_open
+  -Wl,--wrap=hal_wdt_stop
+)
+foreach(symbol IN LISTS BES_BOOT_REQUIRED_SYMBOLS)
+  target_link_options(adapter PRIVATE "-Wl,-u,${symbol}")
+endforeach()
+target_link_libraries(adapter PRIVATE gcc)
+set_property(TARGET adapter APPEND PROPERTY LINK_DEPENDS
+  "${CMAKE_CURRENT_SOURCE_DIR}/linker/loader.ld"
+)

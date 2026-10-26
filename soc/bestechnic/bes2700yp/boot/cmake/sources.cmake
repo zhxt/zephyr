@@ -1,0 +1,553 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+# Object order preserves the loader linker and SRAM copy layout.
+bes_boot_unit(
+  "system_init.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/system_init.c"
+  "direct"
+  BES_BOOT_CRT_FLAGS
+)
+bes_boot_unit("crt_init.c" "${CMAKE_CURRENT_SOURCE_DIR}/crt_init.c" "direct" BES_BOOT_CRT_FLAGS)
+bes_boot_unit(
+  "boot_diagnostics.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/boot_diagnostics.c"
+  "direct"
+  BES_BOOT_CRT_FLAGS
+)
+bes_boot_unit(
+  "diagnostics_port.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/diagnostics_port.c"
+  "direct"
+  BES_BOOT_CRT_FLAGS
+)
+bes_boot_unit(
+  "boot_vectors.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/boot_vectors.c"
+  "direct"
+  BES_BOOT_VECTORS_FLAGS
+)
+bes_boot_unit(
+  "boot_header.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/boot_header.c"
+  "direct"
+  BES_BOOT_HEADER_FLAGS
+)
+bes_boot_unit("startup.S" "${CMAKE_CURRENT_SOURCE_DIR}/startup.S" "direct" BES_BOOT_ENTRY_FLAGS)
+bes_boot_unit(
+  "experiment/early_vendor_backend.S"
+  "${CMAKE_CURRENT_SOURCE_DIR}/experiment/early_vendor_backend.S"
+  "direct"
+  BES_BOOT_EARLY_ASM_FLAGS
+)
+bes_boot_unit("uart_core.c" "${CMAKE_CURRENT_SOURCE_DIR}/uart_core.c" "direct" BES_BOOT_UART_FLAGS)
+bes_boot_unit(
+  "uart_takeover.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/uart_takeover.c"
+  "direct"
+  BES_BOOT_UART_FLAGS
+)
+bes_boot_unit(
+  "irq_storage.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/irq_storage.c"
+  "direct"
+  BES_BOOT_IRQ_STORAGE_FLAGS
+)
+bes_boot_unit(
+  "boot_wrappers.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/boot_wrappers.c"
+  "archive"
+  BES_BOOT_WRAPPERS_FLAGS
+)
+bes_boot_unit("adapter.c" "${CMAKE_CURRENT_SOURCE_DIR}/adapter.c" "direct" BES_BOOT_ADAPTER_FLAGS)
+bes_boot_unit(
+  "flash_readonly.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/flash_readonly.c"
+  "direct"
+  BES_BOOT_ADAPTER_FLAGS
+)
+bes_boot_unit("handoff.S" "${CMAKE_CURRENT_SOURCE_DIR}/handoff.S" "direct" BES_BOOT_ADAPTER_FLAGS)
+bes_boot_unit("payload.S" "${CMAKE_CURRENT_SOURCE_DIR}/payload.S" "direct" BES_BOOT_ADAPTER_FLAGS)
+bes_boot_unit(
+  "copy_bytes.S"
+  "${CMAKE_CURRENT_SOURCE_DIR}/copy_bytes.S"
+  "direct"
+  BES_BOOT_ADAPTER_FLAGS
+)
+bes_boot_unit(
+  "timer_observe.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/timer_observe.c"
+  "direct"
+  BES_BOOT_ADAPTER_FLAGS
+)
+bes_boot_unit(
+  "watchdog_observe.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/watchdog_observe.c"
+  "direct"
+  BES_BOOT_ADAPTER_FLAGS
+)
+bes_boot_unit(
+  "watchdog_stop.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/watchdog_stop.c"
+  "direct"
+  BES_BOOT_ADAPTER_FLAGS
+)
+bes_boot_unit(
+  "format_selftest.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/format_selftest.c"
+  "direct"
+  BES_BOOT_ADAPTER_FLAGS
+)
+bes_boot_unit(
+  "vectors_check.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/vectors_check.c"
+  "direct"
+  BES_BOOT_ADAPTER_FLAGS
+)
+bes_boot_unit(
+  "vectors_selftest.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/vectors_selftest.c"
+  "direct"
+  BES_BOOT_ADAPTER_FLAGS
+)
+bes_boot_unit(
+  "source_native/backend.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/source_native/backend.c"
+  "direct"
+  BES_BOOT_ADAPTER_FLAGS
+)
+bes_boot_unit("build_info.c" "${GENERATED_DIR}/build_info.c" "direct" BES_BOOT_ADAPTER_FLAGS)
+bes_boot_unit(
+  "timer_domains_observe.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/timer_domains_observe.c"
+  "direct"
+  BES_BOOT_TIMER_DOMAINS_FLAGS
+)
+bes_boot_unit(
+  "timer_open_observe.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/timer_open_observe.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "timer_wait.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/timer_wait.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "timer_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/timer_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "timer_native_bes.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/timer_native_bes.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "chipid_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/chipid_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "bootmode_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/bootmode_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cache_native_early.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cache_native_early.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cache_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cache_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "memsc_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/memsc_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cmu_setup_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_setup_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "sysfreq_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/sysfreq_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "sysfreq_irq.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/sysfreq_irq.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "iomux_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/iomux_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "iomux_irq.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/iomux_irq.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "psc_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/psc_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit("psc_irq.c" "${CMAKE_CURRENT_SOURCE_DIR}/psc_irq.c" "direct" BES_BOOT_HARDWARE_FLAGS)
+bes_boot_unit(
+  "cmu_timer_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_timer_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cmu_timer_irq.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_timer_irq.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cmu_periph_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_periph_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cmu_gate_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_gate_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cmu_reset_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_reset_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cmu_reset_nops.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_reset_nops.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cmu_pll_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_pll_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cmu_frequency_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_frequency_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cmu_osc_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_osc_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cmu_module_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_module_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cmu_release_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_release_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "cmu_release_arch.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_release_arch.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "main_cmu_leaf_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/main_cmu_leaf_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "aon_revision_public.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/aon_revision_public.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "main_cmu_axi_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/main_cmu_axi_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "main_cmu_periph_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/main_cmu_periph_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "main_cmu_frequency_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/main_cmu_frequency_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "main_cmu_module_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/main_cmu_module_native.c"
+  "direct"
+  BES_BOOT_HARDWARE_FLAGS
+)
+bes_boot_unit(
+  "bootmode_bes.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/bootmode_bes.c"
+  "direct"
+  BES_BOOT_MMIO_FLAGS
+)
+bes_boot_unit("cache_bes.c" "${CMAKE_CURRENT_SOURCE_DIR}/cache_bes.c" "direct" BES_BOOT_MMIO_FLAGS)
+bes_boot_unit("memsc_bes.c" "${CMAKE_CURRENT_SOURCE_DIR}/memsc_bes.c" "direct" BES_BOOT_MMIO_FLAGS)
+bes_boot_unit(
+  "cmu_setup_bes.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_setup_bes.c"
+  "direct"
+  BES_BOOT_MMIO_FLAGS
+)
+bes_boot_unit("iomux_bes.c" "${CMAKE_CURRENT_SOURCE_DIR}/iomux_bes.c" "direct" BES_BOOT_MMIO_FLAGS)
+bes_boot_unit("psc_bes.c" "${CMAKE_CURRENT_SOURCE_DIR}/psc_bes.c" "direct" BES_BOOT_MMIO_FLAGS)
+bes_boot_unit(
+  "cmu_timer_bes.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_timer_bes.c"
+  "direct"
+  BES_BOOT_MMIO_FLAGS
+)
+bes_boot_unit(
+  "cmu_periph_bes.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_periph_bes.c"
+  "direct"
+  BES_BOOT_MMIO_FLAGS
+)
+bes_boot_unit(
+  "cmu_gate_bes.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_gate_bes.c"
+  "direct"
+  BES_BOOT_MMIO_FLAGS
+)
+bes_boot_unit(
+  "cmu_frequency_bes.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmu_frequency_bes.c"
+  "direct"
+  BES_BOOT_MMIO_FLAGS
+)
+bes_boot_unit(
+  "main_cmu_frequency_bes.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/main_cmu_frequency_bes.c"
+  "direct"
+  BES_BOOT_MMIO_FLAGS
+)
+bes_boot_unit(
+  "power_leaf_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/power_leaf_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "power_leaf_diagnostics.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/power_leaf_diagnostics.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "itn_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/itn_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "pmu_voltage_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/pmu_voltage_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "pmu_voltage_state.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/pmu_voltage_state.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "pmu_module_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/pmu_module_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "pmu_module_state.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/pmu_module_state.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "pmu_sequence_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/pmu_sequence_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "pmu_sequence_state.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/pmu_sequence_state.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "pmu_peripheral_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/pmu_peripheral_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "pmu_boot_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/pmu_boot_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "pmu_boot_state.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/pmu_boot_state.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "pmu_open_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/pmu_open_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "spi_config_public.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/spi_config_public.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "spi_config_adapter.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/spi_config_adapter.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "spi_config_diagnostics.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/spi_config_diagnostics.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "spi_transport_public.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/spi_transport_public.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "spi_control_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/spi_control_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "spi_control_bes.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/spi_control_bes.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "spi_control_diagnostics.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/spi_control_diagnostics.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "spi_poll_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/spi_poll_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "analog_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/analog_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "flaship_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/flaship_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "flaship_bes.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/flaship_bes.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "nor_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/nor_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "nor_state.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/nor_state.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit(
+  "flash_hal_native.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/flash_hal_native.c"
+  "direct"
+  BES_BOOT_POWER_FLASH_FLAGS
+)
+bes_boot_unit("memory_raw" "${GENERATED_DIR}/format/string.c" "memory" BES_BOOT_MEMORY_FLAGS)
+bes_boot_unit(
+  "format_sprintf.c"
+  "${GENERATED_DIR}/format/sprintf.c"
+  "direct"
+  BES_BOOT_SPRINTF_FLAGS
+)
+bes_boot_unit(
+  "format_cbprintf_nano.c"
+  "${GENERATED_DIR}/format/cbprintf_nano.c"
+  "direct"
+  BES_BOOT_FORMAT_FLAGS
+)
+bes_boot_unit("format_strnlen.c" "${GENERATED_DIR}/format/strnlen.c" "direct" BES_BOOT_FORMAT_FLAGS)
+bes_boot_unit("format_string.c" "${GENERATED_DIR}/format/string.c" "strlen" BES_BOOT_FORMAT_FLAGS)
+bes_boot_unit(
+  "format_entry.c"
+  "${CMAKE_CURRENT_SOURCE_DIR}/format_entry.c"
+  "direct"
+  BES_BOOT_FORMAT_FLAGS
+)

@@ -1,0 +1,57 @@
+{
+  "schema": 2,
+  "current_inventory": {
+    "unit_declarations": "cmake/sources.cmake",
+    "compiler_options": "cmake/flags.cmake",
+    "link_declarations": "cmake/linker.cmake",
+    "generated_unit_record": "generated/units.json",
+    "generated_link_input_record": "generated/link-inputs.json",
+    "generated_input_hash_record": "build-inputs.json",
+    "generated_compiler_dependency_record": "compiler-dependencies.json",
+    "generated_build_identity": "generated/build-identity.json",
+    "fixed_source_counts_are_not_a_current_inventory": true
+  },
+  "public_adaptation_scope_records": [
+    "aon_revision_public.rst",
+    "spi_config_public.rst",
+    "spi_transport_public.rst"
+  ],
+  "unresolved_target_source_groups": [
+    "clock_reset_mux",
+    "analog_frame_page_identity_rate",
+    "FlashIP_NOR_cache",
+    "RAM_ROM_core_release",
+    "PMU_calibration"
+  ],
+  "public_BES_hardware_contract_established": false,
+  "whole_loader_publication_ready": false,
+  "scope": "Scoped public adaptations and local target behavior require separate review",
+  "historical_extraction": {
+    "schema": 1,
+    "parent_source_commit": "123351424e3d354555dcc2f019d38ea1c5e758e9",
+    "runtime_paths_preserved": true,
+    "production_units": 102,
+    "original_qualification_or_fixture_files_in_current_tree": false,
+    "existing_copyright_and_license_notices_preserved": true,
+    "public_BES_hardware_contract_established": false,
+    "scope": "Local production extraction; external publication basis remains under review",
+    "production_extraction_commit": "58efc8e01f31118b1bbbf1b9befa4447b37c7cc7",
+    "implementation_baseline_commit": "c78ebd6ff157dd5a640c3050f00f6480da55a1a9",
+    "local_runtime_and_linker_files": 158,
+    "runtime_and_linker_files_unchanged_from_implementation_baseline": 146,
+    "normalized_runtime_source_files": [
+      "irq_storage.c",
+      "boot_contract.h",
+      "watchdog_stop.c",
+      "adapter.c",
+      "image_check.h",
+      "boot_profile.h",
+      "timer_wait.c",
+      "timer_native.c",
+      "timer_native_bes.c",
+      "watchdog_observe.c",
+      "timer_domains_observe.c",
+      "timer_open_observe.c"
+    ]
+  }
+}

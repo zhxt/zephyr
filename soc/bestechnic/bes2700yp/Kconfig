@@ -9,3 +9,11 @@ config SOC_BES2700YP_BTH
 	select ARMV8_M_DSP
 	select CPU_CORTEX_M_HAS_VTOR
 	select CPU_CORTEX_M_HAS_SYSTICK
+
+config SOC_BES2700YP_BOOT_IMAGE
+	bool "Build a BES2700YP ROM boot image"
+	depends on SOC_BES2700YP_BTH
+	help
+	  Build a standalone loader and package the final application ELF into
+	  zephyr.bes.bin. The loader uses a separately selected GNU Arm toolchain
+	  and the checked boot recipe. No flashing or power control is performed.

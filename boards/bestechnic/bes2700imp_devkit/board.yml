@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+board:
+  name: bes2700imp_devkit
+  full_name: BES2700iMP Development Kit
+  vendor: bestechnic
+  socs:
+    - name: bes2700imp

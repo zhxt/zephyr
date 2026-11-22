@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+config BES2700IMP_DEVKIT_BOOT_IMAGE
+	bool "Build the BES2700iMP Development Kit ROM image"
+	depends on !XIP
+	help
+	  Package the SRAM application and standalone loader as
+	  zephyr.bes.bin for the board's 128 KiB ROM boot window.

@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+config SOC_BES2700IMP
+	bool
+
+config SOC
+	default "bes2700imp" if SOC_BES2700IMP

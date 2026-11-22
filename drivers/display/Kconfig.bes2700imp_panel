@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+config BES2700IMP_PANEL
+	bool "BES2700iMP Development Kit LCDC panel"
+	default y
+	depends on DT_HAS_BESTECHNIC_BES2700IMP_DEVKIT_PANEL_ENABLED
+	depends on SOC_BES2700IMP
+	depends on SYS_CLOCK_EXISTS
+	help
+	  Enable the board's 212 by 520 panel using LCDC RGB565 transfers.
+	  The board's initialization profile is a local build input.

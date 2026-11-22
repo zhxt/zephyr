@@ -50,3 +50,21 @@
 		screen-height = <520>;
 	};
 };
+
+&{/soc} {
+	panel: display@40089000 {
+		compatible = "bestechnic,bes2700imp-devkit-panel";
+		reg = <0x40089000 0x54>, <0x40086080 0x4>,
+		      <0x40081000 0x54>, <0x40086010 0x4>,
+		      <0x40200000 0x300>, <0x20035d40 0x35d80>;
+		reg-names = "gpio", "mux", "reset_gpio", "reset_mux", "lcdc", "lcdc_buffer";
+		width = <212>;
+		height = <520>;
+		row-offset = <14>;
+		clock-pin = <8>;
+		cs-pin = <9>;
+		data-pin-start = <10>;
+		reset-pin = <24>;
+		status = "disabled";
+	};
+};

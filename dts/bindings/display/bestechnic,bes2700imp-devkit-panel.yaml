@@ -1,0 +1,41 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+description: BES2700iMP Development Kit LCDC panel
+
+compatible: "bestechnic,bes2700imp-devkit-panel"
+
+include: display-controller.yaml
+
+properties:
+  reg:
+    required: true
+    description: Board GPIO, mux, reset GPIO, reset mux, LCDC and DMA buffer regions.
+
+  reg-names:
+    required: true
+
+  row-offset:
+    type: int
+    required: true
+    description: Panel memory row corresponding to the first visible row.
+
+  clock-pin:
+    type: int
+    required: true
+    description: Clock bit within the display bus GPIO port.
+
+  cs-pin:
+    type: int
+    required: true
+    description: Active-low chip-select bit within the display bus GPIO port.
+
+  data-pin-start:
+    type: int
+    required: true
+    description: First of four consecutive data bits within the display bus GPIO port.
+
+  reset-pin:
+    type: int
+    required: true
+    description: Active-low reset bit within the reset GPIO port.

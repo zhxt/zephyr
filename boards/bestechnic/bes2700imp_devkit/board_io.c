@@ -57,7 +57,7 @@ static void enable_panel_touch_power(void)
 
 static int board_io_init(void)
 {
-	if (IS_ENABLED(CONFIG_INPUT_ZTW623)) {
+	if (IS_ENABLED(CONFIG_INPUT_ZTW623) || IS_ENABLED(CONFIG_BES2700IMP_PANEL)) {
 		enable_panel_touch_power();
 	}
 	if (IS_ENABLED(CONFIG_INPUT_ZTW623)) {

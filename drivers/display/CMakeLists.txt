@@ -10,6 +10,7 @@ endif()
 # zephyr-keep-sorted-start
 zephyr_library_sources_ifdef(CONFIG_AC057TC1	display_ac057tc1.c)
 zephyr_library_sources_ifdef(CONFIG_ADV7535 display_adv7535.c)
+zephyr_library_sources_ifdef(CONFIG_BES2700IMP_PANEL bes2700imp_lcdc.c display_bes2700imp_panel.c)
 zephyr_library_sources_ifdef(CONFIG_CO5300 display_co5300.c)
 zephyr_library_sources_ifdef(CONFIG_DISPLAY_CHARLIEPLEX_LED_MATRIX display_charlieplex_led_matrix.c)
 zephyr_library_sources_ifdef(CONFIG_DISPLAY_COLOR_DITHER color_dither.c)
@@ -84,3 +85,15 @@ zephyr_library_sources_ifdef(CONFIG_TR230S display_tr230s.c)
 zephyr_library_sources_ifdef(CONFIG_UC81XX uc81xx.c)
 zephyr_library_sources_ifdef(CONFIG_WAVESHARE_DSI2DPI display_waveshare_dsi2dpi.c)
 # zephyr-keep-sorted-stop
+
+if(CONFIG_BES2700IMP_PANEL)
+  set(BES2700IMP_PANEL_PROFILE "" CACHE FILEPATH "Local BES2700iMP panel initialization header")
+  if(NOT IS_ABSOLUTE "${BES2700IMP_PANEL_PROFILE}" OR
+     NOT EXISTS "${BES2700IMP_PANEL_PROFILE}" OR
+     IS_DIRECTORY "${BES2700IMP_PANEL_PROFILE}")
+    message(FATAL_ERROR "BES2700IMP_PANEL_PROFILE must be an absolute path to a header")
+  endif()
+  set_source_files_properties(display_bes2700imp_panel.c PROPERTIES
+    COMPILE_DEFINITIONS "BES2700IMP_PANEL_PROFILE=\"${BES2700IMP_PANEL_PROFILE}\""
+  )
+endif()

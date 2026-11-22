@@ -53,6 +53,7 @@ zephyr_library_sources_ifdef(CONFIG_INPUT_VIRTIO input_virtio.c)
 zephyr_library_sources_ifdef(CONFIG_INPUT_VS1838B input_vs1838b.c)
 zephyr_library_sources_ifdef(CONFIG_INPUT_XEC_KBD input_xec_kbd.c)
 zephyr_library_sources_ifdef(CONFIG_INPUT_XPT2046 input_xpt2046.c)
+zephyr_library_sources_ifdef(CONFIG_INPUT_ZTW623 input_ztw623.c)
 # zephyr-keep-sorted-stop
 
 if(CONFIG_INPUT_SDL_TOUCH)

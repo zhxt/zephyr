@@ -1,0 +1,19 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+description: Zinitix ZTW623 capacitive touchscreen controller
+
+compatible: "zinitix,ztw623"
+
+include: [i2c-device.yaml, touchscreen-common.yaml]
+
+properties:
+  irq-gpios:
+    type: phandle-array
+    required: true
+    description: Active-low interrupt signal asserted while a sample is pending.
+
+  reset-gpios:
+    type: phandle-array
+    required: true
+    description: Active-low controller reset.

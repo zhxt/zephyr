@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+config GPIO_BES2700IMP
+	bool "BES2700iMP GPIO"
+	default y
+	depends on DT_HAS_BESTECHNIC_BES2700IMP_GPIO_ENABLED
+	help
+	  Enable GPIO input, push-pull output, and falling-edge interrupts on
+	  boards with the GPIO pads configured by platform initialization.

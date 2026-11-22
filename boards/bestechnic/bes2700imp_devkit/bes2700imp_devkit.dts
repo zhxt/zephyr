@@ -6,6 +6,7 @@
 /dts-v1/;
 
 #include <bestechnic/bes2700imp.dtsi>
+#include <zephyr/dt-bindings/gpio/gpio.h>
 
 / {
 	model = "BES2700iMP Development Kit";
@@ -25,4 +26,27 @@
 &uart0 {
 	current-speed = <921600>;
 	status = "okay";
+};
+
+&gpio0 {
+	ngpios = <29>;
+	gpio-reserved-ranges = <0 27>;
+	status = "okay";
+};
+
+&i2c3 {
+	clock-frequency = <100000>;
+	hcnt-offset = <8>;
+	lcnt-offset = <8>;
+	i2c-sda-hold-time-ns = <1800>;
+	status = "okay";
+
+	touch: touch@20 {
+		compatible = "zinitix,ztw623";
+		reg = <0x20>;
+		irq-gpios = <&gpio0 27 GPIO_ACTIVE_LOW>;
+		reset-gpios = <&gpio0 28 GPIO_ACTIVE_LOW>;
+		screen-width = <212>;
+		screen-height = <520>;
+	};
 };

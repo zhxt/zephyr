@@ -56,6 +56,7 @@ source "drivers/input/Kconfig.virtio"
 source "drivers/input/Kconfig.vs1838b"
 source "drivers/input/Kconfig.xec"
 source "drivers/input/Kconfig.xpt2046"
+source "drivers/input/Kconfig.ztw623"
 # zephyr-keep-sorted-stop
 
 endmenu # Input Drivers

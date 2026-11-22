@@ -1,0 +1,17 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+config INPUT_ZTW623
+	bool "Zinitix ZTW623 touchscreen controller"
+	default y
+	depends on DT_HAS_ZINITIX_ZTW623_ENABLED
+	depends on I2C && GPIO
+	select INPUT_TOUCH
+	help
+	  Enable single-contact touch reporting over I2C using an active-low
+	  GPIO interrupt.
+
+config INPUT_ZTW623_THREAD_STACK_SIZE
+	int "ZTW623 worker stack size"
+	default 1024
+	depends on INPUT_ZTW623

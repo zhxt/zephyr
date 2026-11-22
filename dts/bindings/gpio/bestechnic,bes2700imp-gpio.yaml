@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+description: BES2700iMP GPIO bank with PSC interrupt routing
+
+compatible: "bestechnic,bes2700imp-gpio"
+
+include: [base.yaml, gpio-controller.yaml]
+
+properties:
+  reg:
+    required: true
+    description: Address ranges of the GPIO bank and its PSC interrupt registers.
+
+  reg-names:
+    required: true
+
+  interrupts:
+    required: true
+
+  interrupt-pin-mask:
+    type: int
+    required: true
+    description: Bank pins routed to this PSC interrupt.
+
+  "#gpio-cells":
+    const: 2
+
+gpio-cells:
+  - pin
+  - flags

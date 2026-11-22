@@ -1,0 +1,17 @@
+/*
+ * SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#include <zephyr/dt-bindings/gpio/gpio.h>
+
+&i2c0 {
+	touch: touch@20 {
+		compatible = "zinitix,ztw623";
+		reg = <0x20>;
+		irq-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
+		reset-gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
+		screen-width = <212>;
+		screen-height = <520>;
+	};
+};

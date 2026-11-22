@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: Copyright The Zephyr Project Contributors
+# SPDX-License-Identifier: Apache-2.0
+
+tests:
+  drivers.input.ztw623:
+    tags:
+      - drivers
+      - input
+    platform_allow:
+      - native_sim/native/64
